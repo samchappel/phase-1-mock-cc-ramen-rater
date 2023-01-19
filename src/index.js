@@ -74,25 +74,6 @@ getAllRamen(ramenUrl);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // DOM SELECTORS
 // const ramenMenu = document.querySelector('#ramen-menu')
 // const detailImg = document.querySelector('.detail-image')
