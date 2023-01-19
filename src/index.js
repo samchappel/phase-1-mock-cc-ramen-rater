@@ -6,7 +6,9 @@ const name = document.querySelector('.name');
 const restaurant = document.querySelector('.restaurant');
 const rating = document.querySelector('#rating-display');
 const comment = document.querySelector('#comment-display');
-const newRamen = document.querySelector('#new-ramen')
+const newRamen = document.querySelector('#new-ramen');
+const editRamen = document.querySelector('#edit-ramen');
+let selectedRamen;
 
 function getAllRamen(url) {
     return fetch(url)
@@ -35,6 +37,8 @@ function renderRamenDetail(ramenObj) {
 }
 
 newRamen.addEventListener('submit', addNewRamen)
+editRamen.addEventListener('submit', updateRamen)
+
 
 function addNewRamen(e) {
     e.preventDefault();
@@ -53,6 +57,14 @@ function addNewRamen(e) {
     }
     renderInMenu(newRamenObj)
     newRamen.reset()
+}
+
+function updateRamen(e) {
+    e.preventDefault();
+    selectedRamen.rating = e.target.rating.value;
+    selectedRamen.comment = e.target["new-comment"].value;
+    renderRamenDetail(selectedRamen);
+    editRamen.reset();
 }
 
 getAllRamen(ramenUrl);
